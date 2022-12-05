@@ -51,7 +51,7 @@ class File {
   }
 
   static async parseCSVToJson(csvString) {
-    const lines = csvString.split('\r\n')
+    const lines = csvString.split(/\r?\n/)
     const firstLine = lines.shift()
     const headers = firstLine.split(',')
     const users = lines.map(current => {
