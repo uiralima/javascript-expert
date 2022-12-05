@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test04": "npx mocha -w --parallel aula04-coverage-e2e/api.test.js",
+    "test04:cov": "npx nyc npx mocha --parallel aula04-coverage-e2e/api.test.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,9 @@
   },
   "homepage": "https://github.com/uiralima/javascript-expert#readme",
   "devDependencies": {
-    "sinon": "^9.2.4"
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.4",
+    "supertest": "^6.3.2"
   }
 }
