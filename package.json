@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test04": "npx mocha -w --parallel aula04-coverage-e2e/api.test.js",
-    "test04:cov": "npx nyc npx mocha --parallel aula04-coverage-e2e/api.test.js"
+    "test04:cov": "npx nyc npx mocha --parallel aula04-coverage-e2e/api.test.js",
+    "seed": "node aula05-tdd-project-pt01/seed/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/uiralima/javascript-expert#readme",
   "devDependencies": {
+    "faker": "^5.1.0",
     "mocha": "^8.4.0",
     "nyc": "^15.1.0",
     "sinon": "^9.2.4",

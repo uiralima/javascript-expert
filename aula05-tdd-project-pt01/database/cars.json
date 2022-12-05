@@ -1,0 +1,23 @@
+[
+  {
+    "id": "c2c723d7-210d-44e4-a43e-57e829db760c",
+    "name": "F-150",
+    "releaseYear": 2021,
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "883b46b3-08ff-41f0-bd84-b2b9c169d3f4",
+    "name": "Cruze",
+    "releaseYear": 2022,
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "a56e8a29-e459-4e00-b43b-fa25f92d33bd",
+    "name": "Sentra",
+    "releaseYear": 2022,
+    "available": true,
+    "gasAvailable": true
+  }
+]
