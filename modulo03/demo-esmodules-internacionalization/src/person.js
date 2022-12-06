@@ -1,4 +1,14 @@
 export default class Person {
+  static generateInstanceFromString(text) {
+    const data = text.split(' ')
+    return new Person({
+      id: data[0],
+      vehicles: data[1].split(','),
+      kmTraveled: data[2],
+      from: data[3],
+      to: data[4]
+    })
+  }
   constructor({ id, vehicles, kmTraveled, from, to }) {
     this.id = id
     this.vehicles = vehicles

@@ -1,35 +1,39 @@
-import DraftLog from 'draftlog'
-import chalk from 'chalk'
-import chalkTable from 'chalk-table'
-import readLine from 'readline'
-
+//1 Moto,Submarino 25000000 2000-01-02 2010-05-06
 import database from './../database.json'
 import Person from './person.js'
+import TerminalController from './terminalController.js'
 
 const DEFAULT_LANGUAGE = 'pt-BR'
+const STOP_TERMINAL = ':q'
 
-DraftLog(console).addLineListener(process.stdin)
+const terminalController = new TerminalController()
+terminalController.initializeTerminal(database, DEFAULT_LANGUAGE)
 
-const options = {
-  leftPad: 2,
-  columns: [
-    { field: "id", name: chalk.cyan("ID") },
-    { field: "vehicles", name: chalk.magenta("Vehicles") },
-    { field: "kmTraveled", name: chalk.cyan("Km Traveled") },
-    { field: "from", name: chalk.cyan("From") },
-    { field: "to", name: chalk.cyan("To") },
-  ]
+async function mainLoop() {
+  try {
+    const answer = await terminalController.question('What?\r\n')
+    if (answer === STOP_TERMINAL) {
+      terminalController.closeTreminal()
+      console.log('process finished!')
+      return
+    }
+    const person = Person.generateInstanceFromString(answer)
+    return mainLoop()
+  }
+  catch(error) {
+    console.log(error.stack)
+    return mainLoop()
+  }
 }
 
-const table = chalkTable(options, database.map(m => new Person(m).formatted(DEFAULT_LANGUAGE)))
-const print = console.draft(table) 
+await mainLoop()
 
-const terminal = readLine.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
 
-terminal.question('Qual é o seu nome?', msg => {
-  console.log('msg', msg.toString())
-})
+
+
+
+
+
+
+
 
