@@ -9,7 +9,9 @@
     "seedpt01": "node aula05-tdd-project-pt01/seed/index.js",
     "seedpt02": "node aula06-tdd-project-pt02/seed/index.js",
     "test06": "npx mocha -w --parallel aula06-tdd-project-pt02/test/**/*.test.js",
-    "test06:cov": "npx nyc npx mocha --parallel aula06-tdd-project-pt02/test/**/*.test.js"
+    "test06:cov": "npx nyc npx mocha --parallel aula06-tdd-project-pt02/test/**/*.test.js",
+    "test07": "npx mocha -w --parallel aula07-tdd-project-pt03/test/**/*.test.js",
+    "test07:cov": "npx nyc npx mocha --parallel aula07-tdd-project-pt03/test/**/*.test.js"
   },
   "repository": {
     "type": "git",
