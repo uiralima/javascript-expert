@@ -1,0 +1,45 @@
+// Site regex101.com
+
+// Caso 1 - Deixar apenas numeros em um CPF
+- Massa de testes
+123.123.123-12
+456.456.456-45
+789.789.789-78
+-  Padrão
+^\d{3}.\d{3}.\d{3}-\d{2}$
+- Anotações
+^=>procura no inicio da linha
+$=>procura no fim da linha
+para deixar só os numeros dar um replace da expressão [.-] por vazio o vscode(para rodar expressão regular é necessário clicar no ".*" na caixa de localização)
+[] => indica ou, [.-] => ou ponto ou traço
+
+// Caso 2 - Transformar string em JSON
+- Massa de testes
+Sobrenome1, Nome1
+Sobrenome2, Nome2
+Sobrenome3, Nome3
+- Padrão
+^(\w+),\s(\w+)$ => Grupo 0(pesquisa inteira), Grupo 1(primeiro() - Sobrenome) e Grupo 2(segundo() - Nome)
+para transformar num json podemos dar um replace na expressão acima por
+{fisrtName: '$2', lastName: '$1'}
+- Anotações
+\w procura uma letra/numero
+\w+ procura letra até que ache um caractere não letra/numero
+\s pega um espaço
+\S não quer um espaço
+() Cria grupos
+
+// Caso 3 - Transformar MD em HTML
+- Massa de testes
+Esse texto contém vário links [Terra](http://www.terra.com.br) e também UOL [UOL](http://www.uol.com.br)
+
+Quebra de linha para dificultar a transformação [Avanade](http://www.avande.com) ou
+[Microsoft](http://www.microsoft.com)
+Ou [Accenture](http://www.accenture.com)
+
+Vamos lá
+- Padrão
+\[(.*?)\]\(([http|https].*?)\)
+Substituir por:  <a href='$2'>$1</a>
+-Anotações
+\[(.*?)\] => Pega tudo que está entre [](\[\] => nesse caso pegaria até a ultima "]" da linha, para pegar a próxima temos que por a "?")
