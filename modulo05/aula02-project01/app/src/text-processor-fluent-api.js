@@ -19,7 +19,7 @@ class TextProcessorFluentApi {
     // g -> global
     // m -> multiline
     // i -> insensitive
-    const matchPerson = /(?<=(contratante|contratada):\s{1})(?!\s)(.*\n.*)$/gmi //(?<=[e|a]:\s{1})(?!\s)(.*\n.*)$/gmi
+    const matchPerson = /(?<=(contratante|contratada):\s{1})(?!\s)(.*\n.*)$/gmi //(?<=[contratante|contratada]:\s{1})(?!\s)(.*\n.*)$/gmi
     this.#content = this.#content.match(matchPerson)
     console.log(this.#content) 
     return this
